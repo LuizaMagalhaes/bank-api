@@ -1,5 +1,5 @@
 class AccountsController < ApplicationController
-  before_action :set_conta, only: [:show]
+  before_action :set_account, only: [:show]
 
   def index
     @acounts = Accounts.all
@@ -25,7 +25,7 @@ class AccountsController < ApplicationController
     params.require(:account).permit(:name, :balance)
   end
 
-  def set_conta
+  def set_account
     @account = Account.find(params[:id])
   end
 end

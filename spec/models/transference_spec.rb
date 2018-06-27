@@ -11,19 +11,6 @@ RSpec.describe Transference, type: :model do
     it 'transference should be valid' do
       expect(@transference).to be_valid
     end
-
-    it 'transference should create a debit(10.0) from source account && create a credit(10.0) to destination account' do
-      @account1.balance = 10.0
-      @account2.balance = 0.0
-      
-      @account1.save
-      @account2.save
-      @transference.amount = 10.0
-      @transference.save
-
-      expect(@account1.reload.balance.to_f).to eq 0.0
-      expect(@account2.reload.balance.to_f).to eq 10.0
-    end
   end 
 
   context 'failure' do
