@@ -1,5 +1,5 @@
-## Users API
-Users API is a project to create, list, update, destroy and activate users.
+## Bank API
+Bank API is a project to transfer cash from one account to another and see details from an account.
 
 ### System requirements:
 * Ruby version 2.5.1
@@ -29,11 +29,10 @@ The Transference have the following params:
 * acoount_destination_id;
 
 ### ENDPOINTS:
-`GET  "/accounts"` => Accounts list
 
-`GET "/account/:id"` => View account infos by id
+`GET "/accounts/:id"` => View account infos by id
 
-`POST "/transference"` => Create a new transference
+`POST "/transferences"` => Create a new transference
 
-`GET "/transference/:id"` => View a transference infos by id
+`GET "/transferences/:id"` => View a transference infos by id
   
