@@ -1,13 +1,8 @@
 class AccountsController < ApplicationController
-  before_action :set_account, only: [:show]
-
-  def index
-    @acounts = Accounts.all
-    render json: @accounts
-  end
+  before_action :find_account, only: [:show]
 
   def show
-    render json: @account
+    render json: { account: @account }
   end
 
   def create
@@ -25,7 +20,11 @@ class AccountsController < ApplicationController
     params.require(:account).permit(:name, :balance)
   end
 
-  def set_account
-    @account = Account.find(params[:id])
+  def find_account
+    @account = Account.find_by(id: params[:id])
+    
+    unless @account
+      render json: { error: 'Account not found' }, status: :not_found
+    end
   end
 end

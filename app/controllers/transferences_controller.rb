@@ -1,10 +1,10 @@
 class TransferencesController < ApplicationController
   
   def create
-    
     @transference = Transference.new(transference_params)
-    if @transference.save
-      Transference.transfer
+
+    if @transference.allow_transference?
+      @transference.save
       render json: @transference, status: :created
     else
       render json: @transference.errors, status: :unprocessable_entity
